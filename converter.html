@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temperature Converter</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 30px;
+		}
+		form {
+			margin: 0 auto;
+			max-width: 500px;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+		input[type="number"] {
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		button {
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+		.result {
+			margin-top: 20px;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<h1>Temperature Converter</h1>
+	<form>
+		<label for="celsius">Celsius</label>
+		<input type="number" id="celsius" name="celsius" placeholder="Enter temperature in Celsius">
+
+		<label for="fahrenheit">Fahrenheit</label>
+		<input type="number" id="fahrenheit" name="fahrenheit" placeholder="Enter temperature in Fahrenheit">
+
+		<label for="kelvin">Kelvin</label>
+		<input type="number" id="kelvin" name="kelvin" placeholder="Enter temperature in Kelvin">
+
+		<label for="rankine">Rankine</label>
+		<input type="number" id="rankine" name="rankine" placeholder="Enter temperature in Rankine">
+
+		<button type="button" onclick="convert()">Convert</button>
+	</form>
+
+	<div class="result" id="result"></div>
+
+	<script>
+		function convert() {
+			var celsius = document.getElementById("celsius").value;
+			var fahrenheit = document.getElementById("fahrenheit").value;
+			var kelvin = document.getElementById("kelvin").value;
+			var rankine = document.getElementById("rankine").value;
+
+			if (celsius != "") {
+				fahrenheit = (celsius * 1.8) + 32;
+				kelvin = parseFloat(celsius) + 273.15;
+				rankine = (parseFloat(celsius) + 273.15) * 1.8;
+			} else if (fahrenheit != "") {
+				celsius = (fahrenheit - 32) / 1.8;
+				kelvin = (parseFloat(fahrenheit) + 459.67) * 5/9;
+				rankine = parseFloat(fahrenheit) + 459.67;
+			} else if (kelvin != "") {
+				celsius = kelvin - 273.15;
+				fahrenheit =
